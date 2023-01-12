@@ -16,7 +16,9 @@ public class HelloController {
 	
 	@PostMapping("/hello")
 	public String index(@RequestBody String name, Model model) {
-		model.addAttribute("name", name);
+		String [] myTab = name.split("=");
+		model.addAttribute("name", myTab[1]);
+		//System.out.println(name);
 		return "hello.html";		
 	}
 }
